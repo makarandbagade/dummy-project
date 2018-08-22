@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.kpit.poc</groupId>
+  <artifactId>jarSigner</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>jarSigner</name>
+  <url>http://maven.apache.org</url>
+	
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>3.8.2</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.maven.plugins</groupId>
+  		<artifactId>maven-gpg-plugin</artifactId>
+  		<version>1.6</version>
+  		<type>maven-plugin</type>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+     <!--  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jarsigner-plugin</artifactId>
+        <version>1.4</version>
+        <executions>
+          <execution>
+            <id>sign</id>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>verify</id>
+            <goals>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <keystore>D:\Makarand\keystore\keystore.p12</keystore>
+          <alias>producttf20</alias>
+          <storepass>02fttcudorp</storepass>
+          <keypass>July@2018</keypass>
+        </configuration>
+      </plugin>
+	  <plugin>   
+		<artifactId>maven-jar-plugin</artifactId>     
+			<configuration>     
+				<archive>       
+					<addMavenDescriptor>false</addMavenDescriptor>     
+				</archive>     
+		</configuration>   
+	  </plugin> -->
+	  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+            <configuration>
+              <keyname>makarandb</keyname>
+              <passphraseServerId>AP8c4TjkEYGNv5FA5nAYB5ce3EJ</passphraseServerId>
+            </configuration>
+          </execution>
+        </executions>
+		</plugin>
+     </plugins>
+  </build>
+</project>
